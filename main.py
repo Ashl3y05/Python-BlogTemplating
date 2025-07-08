@@ -6,7 +6,11 @@ post = Post()
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    return render_template("index.html", posts = post.get_all_blog_post())
+
+@app.route('/post/<blog_num>')
+def blog(blog_num):
+    return render_template("post.html", blog=post.get_specific_post(blog_num))
 
 if __name__ == "__main__":
     app.run(debug=True)

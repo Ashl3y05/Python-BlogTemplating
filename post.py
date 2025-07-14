@@ -1,4 +1,5 @@
 import requests
+from flask import Flask, request
 
 class Post:
     def __init__(self):

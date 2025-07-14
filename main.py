@@ -22,15 +22,12 @@ def about():
 
 @app.route('/submit', methods=["POST"])
 def send_message():
-    name= request.form["name"]
+    name = request.form["name"]
     email = request.form["email"]
     phone = request.form["phone"]
     message = request.form["message"]
-
-    return (f"name: {name}\n"
-            f"email: {email}\n"
-            f"phone: {phone}\n"
-            f"message: {message}\n")
+    post.send_message(user_name=name, user_email=email, user_number=phone, user_message=message)
+    return "<h1>Message sent successfully</h2>"
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0",port=5000)
